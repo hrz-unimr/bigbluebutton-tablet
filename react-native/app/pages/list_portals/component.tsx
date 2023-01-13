@@ -32,15 +32,39 @@ export const ListPortals = ({navigation}: IListPortalsDTO) => {
     <FontAwesome5 color={colors.white} solid size={18} name={'plus'} />
   );
   const {portals, setPortals} = usePortal();
+  
+  async function createBasePortals()
+  {
+	await createNewPortal({
+		name: 'Universität Marburg',
+		url: 'https://webconf.hrz.uni-marburg.de',
+	});
+	
+	const portalsStorage = await createNewPortal({
+		name: 'Ilias Marburg',
+		url: 'https://ilias.uni-marburg.de',
+	});
+	
+	setPortals(portalsStorage);
+  	return;
+  }
+  
   async function getPortals() {
     try {
       let items = await AsyncStorage.getAllKeys();
       if (items.includes('portal')) {
         let portalsStorage = await AsyncStorage.getItem('portal');
         portalsStorage = JSON.parse(portalsStorage as string);
-        setPortals(portalsStorage);
+		
+		if(portalsStorage === null || portalsStorage === '[]' || portalsStorage.length < 2)
+		{
+			createBasePortals();
+		} else
+        	setPortals(portalsStorage);
+
       } else {
         console.log('Error: Dont Have Portals Storage');
+      	createBasePortals();
       }
     } catch (e) {
       console.log('error', e);
@@ -83,8 +107,8 @@ export const ListPortals = ({navigation}: IListPortalsDTO) => {
   const onPress = (namePortal: string) => navigation.navigate(namePortal);
 
   const onPressTextCreateDemoServer = async () => {
-    const nameDemoServer = 'Demo Server';
-    const urlDemoServer = 'https://demo-ios.bigbluebutton.org';
+    const nameDemoServer = 'Universität Marburg';
+    const urlDemoServer = 'https://webconf.hrz.uni-marburg.de';
 
     const listPortals = await createNewPortal({
       name: nameDemoServer,

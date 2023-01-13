@@ -601,7 +601,7 @@
 				DEVELOPMENT_TEAM = N69T9W23TC;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BigBlueButtonTablet/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Tablet";
+				INFOPLIST_KEY_CFBundleDisplayName = BigBlueButton;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -639,7 +639,7 @@
 				DEVELOPMENT_TEAM = N69T9W23TC;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = BigBlueButtonTablet/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "BigBlueButton Tablet";
+				INFOPLIST_KEY_CFBundleDisplayName = BigBlueButton;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
